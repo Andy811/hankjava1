@@ -3,12 +3,24 @@ package com.tom;
 import java.util.Random;
 
 public class PokerGame {
+	static int[] card = new int[52];
+	static int flower = 0;
+	static String flower2;
+	char suits[] = { 2660, 2665, 2663, 2666 };
 
+	
+	
 	public static void main(String[] args) {
 
-		System.out.print(getPoker());
+		System.out.println(getPoker());
+
+		getPoker2();
+		for (int i = 0; i < card.length; i++)
+			System.out.println(card[i]+flower2);
 	}
 
+	
+	
 	public static String getPoker() {
 		Random poker = new Random();
 		int num = poker.nextInt(13) + 1;
@@ -31,7 +43,38 @@ public class PokerGame {
 			break;
 		default:
 			result = null;
+
 		}
 		return result;
+	}
+
+	public static void getPoker2() {
+
+		for (int i = 0; i < card.length; i++) {
+			card[i] = i + 1;
+		}
+		for (int i = 0; i < card.length; i++) {	
+			flower = card[i] / 13;
+		}
+
+		switch (flower) {
+		case 0:
+			flower2 = "C";
+			break;
+		case 1:
+			flower2 = "D";
+			break;
+		case 2:
+			flower2 = "H";
+			break;
+		case 3:
+			flower2 = "S";
+
+			break;
+
+		
+		}
+	//	Random random = new Random();
+
 	}
 }
